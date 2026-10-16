@@ -113,10 +113,10 @@ configuration is D-008.
 
 ## D-008: Branch protection configuration for `main`
 
-- Status: Proposed
+- Status: Agreed
 - Type: Technical
 - Date: 2026-10-16
-- Decided by: Claude (proposer)
+- Decided by: Mark (2026-10-16), proposed by Claude
 
 What's available: the repository is **public** on a personal GitHub Free
 account. GitHub's protected branches and rulesets are available for public
@@ -136,6 +136,9 @@ Recommended: one repository ruleset targeting `main` (the default branch), with:
 Not recommended (overhead without benefit for a one-person project): required
 signed commits, linear history, CODEOWNERS, merge queues, deployment gates.
 
-Prerequisite: set `main` as the repository's default branch (it is currently
+Prerequisite: set `main` as the repository's default branch first (it was
 the setup branch, because the repository was empty when it was first pushed).
-Applied by Mark, or by Claude with Mark's go-ahead, when development starts.
+
+Mark asked for this to be applied now rather than at the start of development.
+Claude's GitHub access can't change repository settings, so Mark applies the
+default branch switch and the ruleset in GitHub's settings.
