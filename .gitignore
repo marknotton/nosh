@@ -1,0 +1,8 @@
+# Secrets and local-only config
+.env
+.env.*
+!.env.example
+CLAUDE.local.md
+
+# OS
+.DS_Store
