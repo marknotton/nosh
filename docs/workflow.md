@@ -1,6 +1,6 @@
 # How the AI collaboration works
 
-Status: **Proposed** (see D-001 to D-005 in [decisions.md](decisions.md)).
+Status: **Agreed** (D-001 to D-007 in [decisions.md](decisions.md)).
 
 This is the human guide. The rules the assistants follow are in
 [`AGENTS.md`](../AGENTS.md); this page doesn't repeat them.

@@ -74,6 +74,8 @@ If we do pilot C:
   `/codex:adversarial-review`. Don't enable the review gate. Don't use
   `/codex:rescue` (it lets Codex change code, which breaks the one-writer rule).
 - Make sure no `OPENAI_API_KEY` / `CODEX_API_KEY` is set, so usage stays on Go.
+- Run it only on Mark's Mac, never in CI. The repository is public, and OpenAI
+  says not to use ChatGPT-login automation in CI for public repositories.
 - Add a Claude Code permission rule denying reads of `~/.codex/**`, so Claude
   can call Codex without being able to read its token.
 - Remove it if it adds friction or eats the Go allowance.
