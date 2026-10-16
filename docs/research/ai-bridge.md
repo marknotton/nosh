@@ -1,5 +1,10 @@
 # Research: how GPT and Claude Code can communicate
 
+> **Outcome (D-009, 2026-10-16):** Codex CLI does sign in through ChatGPT Go,
+> but the allowance is too small for routine work (24% of the 30-day window
+> used soon after it began). No plugin, no bridge, no routine Codex use. The
+> shared-document workflow is the approach. This note is kept for the record.
+
 Checked: 2026-10-16. Subscriptions in scope: **ChatGPT Go** and **Claude Pro**.
 No API keys, no paid add-ons.
 
@@ -55,9 +60,11 @@ Reverse direction (Codex calling Claude Code via `claude -p` with the Pro
 login) is possible but pointless here: Claude is the lead, so Claude should be
 the one asking for reviews.
 
-## Recommendation
+## Recommendation (as written before Q-002 was answered)
 
-**A + B now. C later, maybe.**
+Superseded by D-009; kept so the reasoning isn't lost.
+
+**A + B now. C later, maybe.** (Final outcome: A only, see D-009.)
 
 - A gets ~90% of the benefit: you stop copying content and only say "go read
   file X". It costs nothing and can't break.
@@ -68,7 +75,7 @@ the one asking for reviews.
   review step is actually wanted, and (3) you mostly run Claude Code locally,
   since the Codex login lives on your Mac and cloud sessions can't use it.
 
-If we do pilot C:
+If C were ever piloted (not planned):
 
 - Install only the official plugin. Use only `/codex:review` and
   `/codex:adversarial-review`. Don't enable the review gate. Don't use
