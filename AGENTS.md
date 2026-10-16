@@ -1,8 +1,9 @@
 # Nosh — instructions for AI assistants
 
 Nosh is a household meal-planning and shopping application. This file is the
-shared rulebook for every AI assistant working in this repository. Codex reads
-it directly; Claude Code reads it through `CLAUDE.md`.
+shared rulebook for every AI assistant working in this repository. Claude Code
+reads it through `CLAUDE.md`; Codex would read it directly if Mark ever asks for
+a one-off Codex review (D-009).
 
 The project files are the only shared memory. Neither assistant can see the
 other's conversations. If something was agreed in a chat and isn't written
@@ -13,7 +14,7 @@ down here, treat it as not agreed.
 | Who | Role | Owns (writes freely) |
 | --- | --- | --- |
 | **Mark** | Product owner. Makes final product decisions. | Everything. Approves changes to agreed requirements. |
-| **GPT** (ChatGPT / Codex) | Product, planning and review partner. | `docs/product.md`, `docs/roadmap.md`, product entries in `docs/decisions.md`, `docs/questions.md`, the *Review* section of a plan. |
+| **GPT** (normal ChatGPT; content reaches the repo via Mark) | Product, planning and review partner. | `docs/product.md`, `docs/roadmap.md`, product entries in `docs/decisions.md`, `docs/questions.md`, the *Review* section of a plan. |
 | **Claude Code** | Lead developer and technical operator. | Application code, tests, config, `docs/technical.md`, `docs/progress.md`, `docs/research/`, technical entries in `docs/decisions.md`, plans in `docs/plans/`. |
 
 Either assistant may *propose* a change to any file. Changing a file you don't
@@ -73,11 +74,11 @@ If you disagree with the other assistant's conclusion:
 
 1. Mark and GPT agree requirements → `docs/product.md` and `docs/decisions.md`.
 2. Claude Code writes `docs/plans/<feature>.md`: approach, files touched, risks, test plan, open questions, and any problems found with the requirements.
-3. Optionally, GPT/Codex reviews the plan and writes in its *Review* section.
+3. Optionally, GPT reviews the plan (in ChatGPT, via Mark) and the findings go in its *Review* section.
 4. Claude Code responds to each review point (accept / reject with reason).
 5. Mark approves the plan (or decides a disagreement).
 6. Claude Code implements, tests and records the result in `docs/progress.md`.
-7. GPT/Codex may review the result against the requirements.
+7. GPT may review the result against the requirements (in ChatGPT, via Mark).
 
 Small, routine changes that don't affect product behaviour skip steps 2–5.
 

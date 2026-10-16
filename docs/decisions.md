@@ -70,7 +70,7 @@ rules, no duplication.
 
 ## D-005: GPT ↔ Claude communication approach
 
-- Status: Agreed
+- Status: Superseded by D-009
 - Type: Technical
 - Date: 2026-10-16
 - Decided by: Mark (2026-10-16), proposed by Claude
@@ -87,7 +87,7 @@ full comparison in [research/ai-bridge.md](research/ai-bridge.md).
 
 ## D-006: GPT records decisions via Codex mode
 
-- Status: Agreed
+- Status: Superseded by D-009
 - Type: Technical
 - Date: 2026-10-16
 - Decided by: Mark (2026-10-16)
@@ -142,3 +142,25 @@ the setup branch, because the repository was empty when it was first pushed).
 Mark asked for this to be applied now rather than at the start of development.
 Claude's GitHub access can't change repository settings, so Mark applies the
 default branch switch and the ruleset in GitHub's settings.
+
+## D-009: No Codex bridge; shared documents only
+
+- Status: Agreed
+- Type: Technical
+- Date: 2026-10-16
+- Decided by: Mark (2026-10-16)
+- Supersedes: D-005, D-006
+
+Answers Q-002. Codex CLI does authenticate through Mark's ChatGPT Go plan, not
+an API key. But the first check showed 24% of the 30-day Codex allowance
+already used shortly after the new window began, which isn't a practical
+allowance for routine project work. So:
+
+- Don't install or configure the Codex plugin for Claude Code.
+- Don't build an automated bridge between GPT and Claude.
+- Don't use Codex for product discovery, requirements writing or routine reviews.
+- Continue with the shared-document workflow: Mark discusses product work with
+  normal ChatGPT, agreed requirements are recorded in the repository, and
+  Claude Code implements from those documents.
+- Codex may be reconsidered only for an exceptional, tightly scoped,
+  high-value review, and only if Mark explicitly asks.

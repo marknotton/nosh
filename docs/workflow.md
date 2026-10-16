@@ -1,6 +1,6 @@
 # How the AI collaboration works
 
-Status: **Agreed** (D-001 to D-007 in [decisions.md](decisions.md)).
+Status: **Agreed** (D-001 to D-009 in [decisions.md](decisions.md)).
 
 This is the human guide. The rules the assistants follow are in
 [`AGENTS.md`](../AGENTS.md); this page doesn't repeat them.
@@ -8,7 +8,7 @@ This is the human guide. The rules the assistants follow are in
 ## The short version
 
 - **You** decide what Nosh does.
-- **GPT** helps you work out what that is, and writes it down.
+- **GPT** (normal ChatGPT) helps you work out what that is, and drafts it as Markdown.
 - **Claude Code** works out how to build it, builds it, and writes down what it did.
 - **The repo's Markdown files** are how the two assistants talk. Nothing said
   only in a chat counts.
@@ -49,33 +49,32 @@ Your full wish-list maps like this:
 ## A typical feature, in practice
 
 1. **Plan with GPT.** Chat in ChatGPT as normal. When you've agreed something,
-   ask GPT to write it into the docs. Two ways:
-   - Easiest: switch to **Codex mode** in the ChatGPT desktop app, pointed at
-     the Nosh folder, and say *"Record what we agreed about X in
-     docs/product.md and docs/decisions.md."* Codex reads `AGENTS.md`, so it
-     knows the format and its limits. Commit when it's done.
-   - Fallback: ask ChatGPT for the Markdown and paste it in yourself.
+   ask GPT for the Markdown to record it (for `docs/product.md` and
+   `docs/decisions.md`), then get it into the repo either by pasting it in
+   yourself or by handing it to Claude Code with *"Record this verbatim."*
+   Claude files it as written and doesn't edit the product content.
 2. **Hand to Claude.** In Claude Code: *"Plan feature X."* Claude reads the
    docs and writes `docs/plans/x.md`, flagging any problems with the requirements.
-3. **Optional review.** In Codex mode: *"Review docs/plans/x.md against
-   docs/product.md. Write your findings in its Review section only."*
+3. **Optional review.** For a substantial plan, give `docs/plans/x.md` and
+   the relevant requirements to ChatGPT and ask it to review the plan. Paste
+   its findings into the plan's Review section (or hand them to Claude).
 4. **Back to Claude.** *"Respond to the review on docs/plans/x.md."* Claude
    accepts or rebuts each point and lists anything that needs you.
 5. **You decide** only what's listed as needing you, then say *"approved"*.
 6. **Claude builds it**, runs tests and updates `docs/progress.md`.
-7. **Optional acceptance check.** In Codex mode: *"Check the latest entry in
-   docs/progress.md against the requirements for X."*
+7. **Optional acceptance check.** Give ChatGPT the latest entry in
+   `docs/progress.md` and the requirements for X, and ask whether they match.
 
-Your role as messenger shrinks to saying *"go look at file Y"*. You never copy
-content between the assistants.
+The repository does the remembering. Your copying is limited to agreed
+outcomes (requirements, review findings), not whole conversations.
 
 ## What is and isn't automated
 
 | Step | Automated? |
 | --- | --- |
-| Context transfer between assistants | Yes, via the shared files. No copy-paste. |
+| Context transfer between assistants | Via the shared files. You carry agreed outcomes from ChatGPT into the repo. |
 | Starting each assistant | No. You open the app and give a one-line prompt. |
-| GPT reviewing Claude's plan | Manual today (you ask Codex). Could become semi-automatic with the Codex plugin, see D-005. |
+| GPT reviewing Claude's plan | Manual and optional, in normal ChatGPT. No Codex, plugin or bridge (D-009). |
 | Claude reading GPT's requirements | Yes, automatic at the start of each task. |
 | Approving product changes | Never automated. Always you. |
 
